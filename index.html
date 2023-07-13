@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <title>Grid</title>
+     <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+     <button id="newGrid">New Grid</button>
+     <div id="container"></div>
+     <script>
+          function createGrid(size) {
+               const container = document.getElementById("container");
+               container.innerHTML = "";
+               for (let i = 0; i < size * size; i++) {
+                    const square = document.createElement("div");
+                    square.classList.add("square");
+                    square.style.width = `${960 / size}px`;
+                    square.style.height = `${960 / size}px`;
+                    container.appendChild(square);
+               }
+          }
+
+          document.getElementById("newGrid").addEventListener("click", function () {
+               const size = prompt("Enter grid size (max 100):");
+               if (size > 0 && size <= 100) {
+                    createGrid(size);
+               } else {
+                    alert("Invalid grid size!");
+               }
+          });
+
+          createGrid(16);
+     </script>
+</body>
+
+</html>
